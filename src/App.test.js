@@ -36,19 +36,27 @@ const rows = [
 ];
 
 it('renders without crashing', () => {
-  shallow(<App rows={[]} locale="da" rowsPerPage={5} />);
+  shallow(<App rows={[]} rowsPerPage={5} />);
 });
 
 it('renders 5 rows', () => {
-  const wrapper = mount(<App rows={rows} locale="da" rowsPerPage={5} />);
+  const wrapper = mount(<App rows={rows} rowsPerPage={5} />);
 
   expect(wrapper.find('tr').length).toBe(5);
 });
 
 it('filters rows based on input', () => {
-  const wrapper = mount(<App rows={rows} locale="da" rowsPerPage={5} />);
+  const wrapper = mount(<App rows={rows} rowsPerPage={5} />);
 
   wrapper.find('input').simulate('change', { target: { value: 'k' } });
+
+  expect(wrapper.find('tr').length).toBe(2);
+});
+
+it('filters rows based on input', () => {
+  const wrapper = mount(<App rows={rows} rowsPerPage={5} />);
+
+  wrapper.find('input').simulate('change', { target: { value: 'al' } });
 
   expect(wrapper.find('tr').length).toBe(2);
 });
