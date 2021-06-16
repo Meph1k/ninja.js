@@ -8,11 +8,7 @@ it('Should be a controlled input', () => {
 
   const changeValue = jest.fn().mockImplementation((event) => {
     value = event.target.value;
-  })
-
-  // const changeValue = (event) => {
-  //     value = event.target.value;
-  // };
+  });
 
   const wrapper = mount(<Search onSearch={changeValue} value={value} />);
 
