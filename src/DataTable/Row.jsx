@@ -1,4 +1,5 @@
 import React from 'react'
+import DataRow from '../shared-prop-types/data-rows';
 
 const Row = (props) => {
   const { row } = props
@@ -13,6 +14,10 @@ const Row = (props) => {
       </td>
     </tr>
   )
+}
+
+Row.propTypes = {
+    row: DataRow,
 }
 
 export default Row
